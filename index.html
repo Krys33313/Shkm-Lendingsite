@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&amp;family=Montserrat:wght@300;400;500;700&amp;family=Roboto:wght@300;400;500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Lendeng Site</title>
+    <link rel="shortcut icon" href="img/shkmlogo.png" type="image/x-icon">
+    <!-- Библиотека JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('xv4iRhpiXnymwo8_Q');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                // these IDs from the previous steps
+                emailjs.sendForm('service_1bon82i', 'template_67efuys', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#req").hide();
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="header">
+                <p class="header__text">
+                    "Літо - це пора для дивовижних пригод та нових відкритів, спробуйте щось нове у нас"
+                </p>
+            <div class="header__conteiner">
+                <p class="header__title">Літні курси <span style="color: #d5adfb;"> х</span></p>
+                <img class="shkmlogo" src="img/logo(1).png" alt="">
+                <div class="header__item">
+                    <p class="header__time">26.06 - 07.07 / 14.08-25.08</p>
+                    <p class="header__item_text">
+                        10 днів - 10 уроків <br> (по годині)
+                    </p>
+                    <p class="header__item_text" style="padding-left: 25px;">
+                        Вартість курсів <br> усього 1400грн
+                    </p>
+                </div>
+            </div>
+            <button class="header__btn register">Приєднатися</button>
+        </div>
+        <main>
+            <p class="main__title">Программа</p>
+            <div class="main__item">
+                <div class="main__item_headline">Анімація SVG (CSS+JS)</div>
+                <img src="img/images.png" alt="" class="main__item_img">
+                <div class="main__item_text">
+                    Цей Курс дозволить учням опанувати необхідні навички для створення динамічних та візуально привабливих анімацій з використанням SVG, CSS та JavaScript, розширюючи можливості веб-дизайну та створюючи вражаючі візуальні ефекти для свого контенту.
+                </div>
+                <button class="main__btn register">Приєднатися</button>
+            </div>
+            <div class="main__item second">
+                <div class="main__item_headline2">Мистецтво у коді: Малювання за допомогою HTML | CSS"</div>
+                <img src="img/images.jpg" alt="" class="main__item_img">
+                <div class="main__item_text" style="color: white;">
+                    Цей курс пропонує захоплююче занурення у світ творчості та можливість вивчити основи малювання та графіки з використанням мов розмітки HTML та CSS.
+                </div>
+                <button class="main__btn register">Приєднатися</button>
+            </div>
+            <div class="main__item">
+                <div class="main__item_headline third">MobileApp Engineer: Розробка мобільних додатків</div>
+                <img src="img/mobile-app1.webp" alt="" class="main__item_img">
+                <div class="main__item_text">
+                    Даний курс надає можливість освоїти процес розробки мобільних додатків з нуля. Протягом курсу будуть розглянуті сучасні методи та інструменти, необхідні для створення якісних та функціональних мобільних додатків.
+                </div>
+                <button class="main__btn register" style="margin-top: 6px;">Приєднатися</button>
+            </div>
+        </main>
+        <footer>
+            <img src="img/shkmlogo.png" alt="" class="footer__img">
+            <p class="footer_text">Пошта:kompschool73@gmail.com</p>
+            <p class="footer_text">Тел..:+38 (068) 206 07 34</p>
+            <p class="footer_text2">Адреса:м. Кривий Ріг, вул. Співдружності 92А</p>
+            <p class="footer_text3">© 2023 Школа комп’ютерної майстерності. <br> 
+                Всі права захищені</p>
+        </footer>
+    </div>
+    <div id="req" class="reg">
+        <button onclick="close1()" id="close" class="close"></button>
+        <form id="contact-form">
+            <label for="GET-name">Введіть ім'я</label>
+            <input name="from_name" placeholder="Іванов Іван Іванович" class="input" id="GET-name" type="text">
+            <label for="GET-phone">Введіть номер телефону</label>
+            <input placeholder="+38123456789" id="GET-phone" name="phone" class="input" maxlength="14" type="tel">
+            <label for="GET-email">Введіть електронну пошту</label>
+            <input placeholder="example@gmail.com" class="input" id="GET-email" type="email" name="email">
+            <div class="courses">
+                <label class="select_curs" for="">Вибиріть курс</label>
+                <div class="radio"><input class="courses_inp" value="Анімація SVG" type="radio" name="courses" id="courses"><label class="label_curs" for="">Мистецтво у коді</label></div>
+                <div class="radio"><input class="courses_inp" value="Малювання у коді" type="radio" name="courses" id="courses"><label class="label_curs" for="">Анімація SVG(CSS+JS)</label></div>
+                <div class="radio"><input class="courses_inp" value="MobileApp Engineer" type="radio" name="courses" id="courses"><label class="label_curs" for="">MobileApp Engineer</label></div>
+            </div>
+            <label for="message">Коментар</label>
+            <textarea placeholder="Коментар" name="message" class="input" id="message"></textarea>
+            <input onclick="fun1()" class="submit" type="submit" value="Відправити">
+        </form>
+        <div id="succes" class="succes">
+            <img class="verify" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2048px-Check_green_icon.svg.png" alt="">
+            <label class="thanks" for="">Дякую за реестрацію!</label>
+        </div>
+    </div>
+    <script>
+        function fun1() {
+            document.getElementById("contact-form").style.display = "none";
+            document.getElementById("succes").style.display = "flex";
+        }
+        function close1() {
+            document.getElementById("req").style.display = "none";
+        }
+    </script>
+    <script>
+        $('.register').click(function(){
+            $("#req").fadeIn(300);
+            $("#req").css("display", "flex");
+        });
+    </script>
+</body>
+</html>
